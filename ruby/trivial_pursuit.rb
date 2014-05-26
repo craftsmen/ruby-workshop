@@ -1,15 +1,15 @@
-first = "When was created Ruby lang ?|1995"
-second = "When was created PHP lang ?|1994"
-questions = [first, second]
+cards = [
+  { question: "When was created Ruby lang ?", answer: "1995" },
+  { question: "When was created PHP lang ?", answer: "1994" }
+]
 
-questions.each do |question|
-  question, answer = question.split('|')
-  print "#{question} >"
+cards.each do |card|
+  print "#{card[:question]} >"
   guess = gets.chomp
 
-  if guess == answer
+  if guess == card[:answer]
     puts "Correct"
   else
-    puts "Incorrect ! Answer was #{answer}"
+    puts "Incorrect ! Answer was #{card[:answer]}"
   end
 end
