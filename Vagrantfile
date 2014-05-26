@@ -10,7 +10,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Forward the default rails server port
   config.vm.network :forwarded_port, guest: 3000, host: 3000
-
-  # Share current folder with the box
-  config.vm.synced_folder ".", "/var/www"
 end

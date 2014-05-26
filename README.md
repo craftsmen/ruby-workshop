@@ -38,8 +38,9 @@ vagrant up
 
 Vous devriez obtenir un message vous indiquant que la machine virtuelle est opérationnelle
 et qu'elle est actuellement active. Cette machine virtuelle partage son répertoire
-interne `/var/www` avec votre système : tous les fichiers que vous déposez ou éditez
-dans ce répertoire sont disponibles dans votre box Vagrant, et inversement.
+interne `/vagrant` avec le répertoire courant de votre système : tous les fichiers
+que vous déposez ou éditez dans ce répertoire sont disponibles dans votre box Vagrant,
+et inversement.
 
 Test de votre environnement
 ---------------------------
@@ -51,8 +52,16 @@ vagrant ssh
 ruby --version
 ```
 
-Vérifiez que la version de ruby est bien la version 2.1.1. Vous êtes prêt(e) à découvrir
-le langage avec nous !
+Vérifiez que la version de ruby est bien la version 2.1.1 (ou plus). Puis, vérifiez
+dans la box que vous retrouvez bien dans le répertoire `/vagrant` le repository courant :
+
+```sh
+cd /vagrant
+ls
+```
+
+Vous devriez obtenir, dans la liste des fichiers, le courant fichier README.md. Si c'est
+le cas, vous êtes prêt(e) gsà découvrir le langage avec nous !
 
 Aide et questions
 -----------------
