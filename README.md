@@ -24,8 +24,9 @@ Vous devez donc commencer par installer Vagrant sur votre poste, en le télécha
 ici : http://www.vagrantup.com/downloads
 
 > Note : si vous aviez une version de Vagrant préalablement installée sur votre poste,
-> vérifiez bien que celle-ci est supérieure à la 1.6. Ceci est nécessaire pour que
-> Vagrant trouve la machine virtuelle nécessaire pour ce workshop.
+> vérifiez bien que celle-ci est supérieure à la 1.6 en tapant `vagrant --version`.
+> Ceci est nécessaire pour que Vagrant trouve la machine virtuelle utilisée dans
+> ce workshop.
 
 Une fois l'outil installé, clonez ce repository sur votre machine, puis initialisez
 votre machine virtuelle Vagrant :
@@ -36,10 +37,10 @@ cd workshop-ruby
 vagrant up
 ```
 
-Vous devriez obtenir un message vous indiquant que la machine virtuelle est opérationnelle
-et qu'elle est actuellement active. Cette machine virtuelle partage son répertoire
-interne `/vagrant` avec le répertoire courant de votre système : tous les fichiers
-que vous déposez ou éditez dans ce répertoire sont disponibles dans votre box Vagrant,
+Si vous n'obtenez pas d'erreur, votre machine virtuelle est opérationnelle et en
+cours de fonctionnement ! Cette machine virtuelle partage son répertoire interne
+`/vagrant` avec le répertoire courant de votre système : tous les fichiers que
+vous déposez ou éditez dans ce répertoire sont disponibles dans votre box Vagrant,
 et inversement.
 
 Test de votre environnement
