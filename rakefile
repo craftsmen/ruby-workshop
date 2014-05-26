@@ -3,7 +3,7 @@ require 'git'
 namespace :workshop do
   @git = Git.open('.')
 
-  desc 'Next'
+  desc 'Move to next step'
   task :next do
     step = next_step
     if step
@@ -13,7 +13,7 @@ namespace :workshop do
     end
   end
 
-  desc 'Prev'
+  desc 'Move to previous step'
   task :prev do
     step = prev_step
     if step
@@ -21,6 +21,13 @@ namespace :workshop do
     else
       puts "You are where everything starts."
     end
+  end
+
+  desc 'Move to a specific step'
+  task :step, :step do |t, args|
+    step = "step-#{args[:step]}"
+    raise "Step #{step} is not valid" if !@git.branches[step]
+    move_to(@git.branches[step])
   end
 
   def move_to(branch)
