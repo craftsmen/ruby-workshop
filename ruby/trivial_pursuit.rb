@@ -1,15 +1,24 @@
+class Card
+  attr_accessor :question, :answer
+
+  def initialize(question, answer)
+    @question = question
+    @answer = answer
+  end
+end
+
 cards = [
-  { question: "When was created Ruby lang ?", answer: "1995" },
-  { question: "When was created PHP lang ?", answer: "1994" }
+  Card.new("When was created Ruby lang ?", "1995"),
+  Card.new("When was created PHP lang ?", "1994")
 ]
 
 cards.each do |card|
-  print "#{card[:question]} >"
+  print "#{card.question} >"
   guess = gets.chomp
 
-  if guess == card[:answer]
+  if guess == card.answer
     puts "Correct"
   else
-    puts "Incorrect ! Answer was #{card[:answer]}"
+    puts "Incorrect ! Answer was #{card.answer}"
   end
 end
