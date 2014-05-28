@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root 'talks#index'
-  get 'talks/:id' => 'talks#show', as: :talk
+  resources :talks, only: [:index, :show] do
+    resources :votes, only: [:create]
+  end
 end
