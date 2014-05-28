@@ -6,6 +6,7 @@ namespace :dev do
     end
 
     create_talks
+    create_votes
   end
 
   def create_talks
@@ -18,6 +19,16 @@ namespace :dev do
 
     talks.each do |talk|
       Talk.create(talk)
+    end
+  end
+
+  def create_votes
+    puts 'Generating random votes'
+
+    Talk.all.each do |talk|
+      rand(0..5).times do
+        Vote.create(note: rand(1..10), talk: talk)
+      end
     end
   end
 end
