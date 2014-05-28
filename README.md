@@ -32,7 +32,7 @@ Une fois l'outil installé, clonez ce repository sur votre machine, puis initial
 votre machine virtuelle Vagrant :
 
 ```sh
-git clone git@gitlab.com:mainelabs/workshop-ruby.git
+git clone git@github.com:craftsmen/workshop-ruby.git
 cd workshop-ruby
 vagrant up
 ```
