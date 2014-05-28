@@ -1,10 +1,14 @@
-require 'git'
-
 namespace :workshop do
-  @git = Git.open('.')
+
+  desc 'Initialize the workshop environment'
+  task :init do
+    system 'bundle install'
+    system 'for remote in `git branch -r | grep -v master `; do git checkout --track $remote ; git checkout master ; done'
+  end
 
   desc 'Move to next step'
   task :next do
+    init_git
     step = next_step
     if step
       move_to step
@@ -15,6 +19,7 @@ namespace :workshop do
 
   desc 'Move to previous step'
   task :prev do
+    init_git
     step = prev_step
     if step
       move_to step
@@ -25,9 +30,15 @@ namespace :workshop do
 
   desc 'Move to a specific step'
   task :step, :step do |t, args|
+    init_git
     step = "step-#{args[:step]}"
     raise "Step #{step} is not valid" if !@git.branches[step]
     move_to(@git.branches[step])
+  end
+
+  def init_git
+    require 'git'
+    @git = Git.open('.')
   end
 
   def move_to(branch)
