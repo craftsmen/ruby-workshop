@@ -1,1 +1,5 @@
-Ici nous allons afficher la liste des talks !
+<h1>Liste des talks</h1>
+<% @talks.each do |talk| %>
+  <h2><%= talk.name %></h2>
+  <p><%= talk.description %></p>
+<% end %>
